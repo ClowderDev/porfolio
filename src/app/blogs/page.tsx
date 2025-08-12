@@ -2,85 +2,152 @@
 
 import { blogs } from "@/contents/blogs";
 import Link from "next/link";
-import { FaCalendarAlt, FaClock } from "react-icons/fa";
+import Image from "next/image";
+import {
+  FaCalendarAlt,
+  FaClock,
+  FaTag,
+  FaUser,
+  FaArrowRight,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
 
-export default function Blogs() {
+export default function BlogsPage() {
   return (
-    <div className="container max-w-7xl mx-auto py-12">
-      <motion.h1
-        className="text-4xl font-bold mb-8 text-center"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Blog Posts
-      </motion.h1>
+    <div className="min-h-screen ">
+      <div className="container max-w-7xl mx-auto py-20 px-4">
+        <motion.h1
+          className="text-4xl font-bold mb-4 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          My Blogs
+        </motion.h1>
+        <motion.p
+          className="text-lg text-secondary mb-24 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Here are some of my latest blog posts. Click on the titles to read
+          more.
+        </motion.p>
 
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        variants={staggerContainer}
-        initial="initial"
-        animate="animate"
-      >
-        {blogs.map((blog, index) => (
-          <motion.article
-            key={index}
-            className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
-            variants={fadeInUp}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: "spring" as const, stiffness: 300 }}
-          >
-            <div className="p-6">
-              <motion.h2
-                className="text-xl font-semibold mb-2"
-                whileHover={{ x: 5 }}
-                transition={{ type: "spring" as const, stiffness: 300 }}
-              >
-                <Link
-                  href={`/blogs/${blog.slug}`}
-                  className="hover:text-primary transition-colors"
-                >
-                  {blog.title}
-                </Link>
-              </motion.h2>
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        >
+          {blogs.map((blog) => (
+            <motion.article
+              key={blog.slug}
+              className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden border border-gray-700 group"
+              variants={fadeInUp}
+              whileHover={{ scale: 1.02, y: -5 }}
+              transition={{ type: "spring" as const, stiffness: 300 }}
+            >
+              <Link href={`/blogs/${blog.slug}`} className="block">
+                {/* Blog Image */}
+                {blog.image && (
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={blog.image}
+                      alt={blog.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                    {blog.featured && (
+                      <div className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                        Featured
+                      </div>
+                    )}
+                  </div>
+                )}
 
-              <motion.p
-                className="text-secondary mb-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                {blog.excerpt}
-              </motion.p>
+                <div className="p-6">
+                  {/* Blog Tags */}
+                  {blog.tags && blog.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {blog.tags.slice(0, 2).map((tag, index) => (
+                        <span
+                          key={index}
+                          className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded text-xs"
+                        >
+                          <FaTag className="w-2 h-2" />
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
-              <motion.div
-                className="flex items-center gap-4 text-sm text-secondary"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                <motion.div
-                  className="flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <FaCalendarAlt className="h-4 w-4" />
-                  <span>{new Date(blog.date).toLocaleDateString()}</span>
-                </motion.div>
+                  {/* Blog Title */}
+                  <motion.h2
+                    className="text-xl font-semibold mb-3 hover:text-primary transition-colors line-clamp-2 text-white"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring" as const, stiffness: 300 }}
+                  >
+                    {blog.title}
+                  </motion.h2>
 
-                <motion.div
-                  className="flex items-center gap-2"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <FaClock className="h-4 w-4" />
-                  <span>{blog.readTime}</span>
-                </motion.div>
-              </motion.div>
-            </div>
-          </motion.article>
-        ))}
-      </motion.div>
+                  {/* Blog Excerpt */}
+                  <motion.p
+                    className="text-gray-300 mb-4 line-clamp-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    {blog.excerpt}
+                  </motion.p>
+
+                  {/* Blog Meta */}
+                  <motion.div
+                    className="flex items-center justify-between text-sm text-gray-400"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <div className="flex items-center space-x-4">
+                      {blog.author && (
+                        <motion.span
+                          className="flex items-center"
+                          whileHover={{ scale: 1.05 }}
+                        >
+                          <FaUser className="mr-1 w-3 h-3" />
+                          {blog.author}
+                        </motion.span>
+                      )}
+                      <motion.span
+                        className="flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <FaCalendarAlt className="mr-1 w-3 h-3" />
+                        {new Date(blog.date).toLocaleDateString()}
+                      </motion.span>
+                      <motion.span
+                        className="flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <FaClock className="mr-1 w-3 h-3" />
+                        {blog.readTime}
+                      </motion.span>
+                    </div>
+
+                    <motion.div
+                      className="flex items-center text-blue-400 group-hover:translate-x-1 transition-transform"
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <FaArrowRight className="w-4 h-4" />
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </Link>
+            </motion.article>
+          ))}
+        </motion.div>
+      </div>
     </div>
   );
 }
