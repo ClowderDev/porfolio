@@ -18,13 +18,14 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 interface BlogPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default function BlogPage({ params }: BlogPageProps) {
-  const blog = blogs.find((b) => b.slug === params.slug);
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { slug } = await params;
+  const blog = blogs.find((b) => b.slug === slug);
 
   if (!blog) {
     notFound();
