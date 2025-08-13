@@ -62,6 +62,12 @@ indent_style = space
 
 Cài extension **Prettier - Code formatter** cho VS Code.
 
+Cài plugin **prettier-plugin-classnames**, **prettier-plugin-tailwindcss** và **prettier** cho dự án:
+
+\`\`\`bash
+npm install --save-dev prettier-plugin-classnames prettier-plugin-tailwindcss prettier
+\`\`\`
+
 Tạo file \`.prettierrc\` trong thư mục gốc:
 
 \`\`\`json
@@ -73,8 +79,12 @@ Tạo file \`.prettierrc\` trong thư mục gốc:
   "endOfLine": "auto",
   "useTabs": false,
   "singleQuote": true,
-  "printWidth": 120,
-  "jsxSingleQuote": true
+  "printWidth": 100,
+  "jsxSingleQuote": true,
+  "plugins": [
+    "prettier-plugin-classnames",
+    "prettier-plugin-tailwindcss"
+  ]
 }
 \`\`\`
 
@@ -83,12 +93,6 @@ Tạo file \`.prettierignore\`:
 \`\`\`json
 node_modules/
 dist/
-\`\`\`
-
-Cài prettier cho dự án:
-
-\`\`\`bash
-npm i prettier -D
 \`\`\`
 
 Thêm script vào \`package.json\`:
