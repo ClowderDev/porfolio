@@ -15,25 +15,16 @@ import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 export default function BlogsPage() {
   return (
-    <div className="min-h-screen ">
-      <div className="container max-w-7xl mx-auto py-20 px-4">
-        <motion.h1
-          className="text-4xl font-bold mb-4 text-center"
+    <section className="py-20">
+      <div className="container max-w-7xl mx-auto px-4">
+        <motion.h2
+          className="text-3xl font-bold mb-12 text-center"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          My Blogs
-        </motion.h1>
-        <motion.p
-          className="text-lg text-secondary mb-24 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Here are some of my latest blog posts. Click on the titles to read
-          more.
-        </motion.p>
+          All Blog Posts
+        </motion.h2>
 
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -103,7 +94,7 @@ export default function BlogsPage() {
                   </motion.p>
                   {/* Blog Meta */}
                   <motion.div
-                    className="flex items-center justify-between text-sm text-gray-400"
+                    className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -135,7 +126,7 @@ export default function BlogsPage() {
                     </div>
 
                     <motion.div
-                      className="flex items-center text-blue-400 group-hover:translate-x-1 transition-transform"
+                      className="flex items-center text-primary group-hover:translate-x-1 transition-transform"
                       whileHover={{ scale: 1.1 }}
                     >
                       <FaArrowRight className="w-4 h-4" />
@@ -147,6 +138,6 @@ export default function BlogsPage() {
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -19,7 +19,9 @@ export default function Blogs() {
       <div className="container max-w-7xl mx-auto px-4">
         <motion.h2
           className="text-3xl font-bold mb-12 text-center"
-          {...fadeInUp}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           Latest Blog Posts
         </motion.h2>
