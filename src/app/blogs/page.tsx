@@ -84,24 +84,23 @@ export default function BlogsPage() {
                   )}
 
                   {/* Blog Title */}
-                  <motion.h2
-                    className="text-xl font-semibold mb-3 hover:text-primary transition-colors line-clamp-2 text-white"
+                  <motion.h3
+                    className="text-xl font-semibold mb-3 hover:text-primary transition-colors line-clamp-2"
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring" as const, stiffness: 300 }}
                   >
                     {blog.title}
-                  </motion.h2>
+                  </motion.h3>
 
                   {/* Blog Excerpt */}
                   <motion.p
-                    className="text-gray-300 mb-4 line-clamp-3"
+                    className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
                   >
                     {blog.excerpt}
                   </motion.p>
-
                   {/* Blog Meta */}
                   <motion.div
                     className="flex items-center justify-between text-sm text-gray-400"
