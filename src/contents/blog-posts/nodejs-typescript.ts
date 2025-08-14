@@ -69,7 +69,7 @@ npm install prettier eslint-config-prettier eslint-plugin-prettier tsx tsc-alias
 \`\`\`
 
 ## Cấu hình tsconfig.json
-
+Lưu ý: tạo file type.d.ts trống trong src để tránh lỗi
 \`\`\`json
 {
   "compilerOptions": {
@@ -180,7 +180,7 @@ dist/
 Tạo file \`src/index.ts\`
 
 \`\`\`typescript
-const name: string = 'Dư Thanh Được'
+const name: string = 'ClowderDev'
 console.log(name)
 \`\`\`
 
