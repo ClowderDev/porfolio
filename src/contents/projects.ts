@@ -10,4 +10,19 @@ export const projects: Project[] = [
     demoLink: "https://project-management-clowder.vercel.app/",
     image: "/projects/project-management.png",
   },
+  {
+    title: "E-commerce Platform",
+    description:
+      "A full-stack e-commerce platform built with Next.js, Node.js, TypeScript, Prisma and Tailwind CSS.",
+    technologies: [
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "Prisma",
+      "Tailwind CSS",
+    ],
+    githubLink: "https://github.com/ClowderDev/ecommerce",
+    demoLink: "",
+    image: "/projects/ecommerce.png",
+  },
 ];
