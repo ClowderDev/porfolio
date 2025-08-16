@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeInUp, fadeIn, scaleIn } from "@/utils/animations";
+import { IoMdDownload } from "react-icons/io";
 
 export default function Hero() {
   return (
@@ -100,6 +101,25 @@ export default function Hero() {
                 className=" inline-block w-full bg-gray-500  md:w-auto text-gray-800 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               >
                 Contact Me
+              </Link>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="flex md:flex-row justify-center gap-4 mt-4"
+            {...fadeInUp}
+            transition={{ delay: 0.6 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex-1 max-w-md"
+            >
+              <Link
+                href="/TranLeVinhBuu.pdf"
+                download="TranLeVinhBuu.pdf"
+                className="bg-primary inline-flex items-center justify-center w-full text-white py-3 rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                <IoMdDownload className="mr-2" /> Get my CV
               </Link>
             </motion.div>
           </motion.div>
