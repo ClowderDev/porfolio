@@ -207,7 +207,7 @@ npm run start
 const lib = (await import('lib')).default
 \`\`\`
 
-3. Luôn cài extension ESLint và Prettier cho VS Code để tự động check, format code`,
+3.Luôn cài extension ESLint và Prettier cho VS Code để tự động check, format code`,
   author: "ClowderDev",
   date: "2025-08-12",
   readTime: "12 min read",

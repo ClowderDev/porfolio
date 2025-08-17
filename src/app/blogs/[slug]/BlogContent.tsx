@@ -39,19 +39,19 @@ export default function BlogContent({ blog }: BlogContentProps) {
         </h1>
 
         {/* Meta Information */}
-        <div className="flex flex-wrap gap-4 text-sm text-gray-300 mb-6">
+        <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mb-6">
           {blog.author && (
             <div className="flex items-center gap-2">
-              <FaUser className="w-4 h-4 text-blue-400" />
+              <FaUser className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               <span>{blog.author}</span>
             </div>
           )}
           <div className="flex items-center gap-2">
-            <FaCalendar className="w-4 h-4 text-blue-400" />
+            <FaCalendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span>{blog.date}</span>
           </div>
           <div className="flex items-center gap-2">
-            <FaClock className="w-4 h-4 text-blue-400" />
+            <FaClock className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span>{blog.readTime}</span>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function BlogContent({ blog }: BlogContentProps) {
             {blog.tags.map((tag, index) => (
               <span
                 key={index}
-                className="inline-flex items-center gap-1 px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm border border-blue-500/30"
+                className="inline-flex items-center gap-1 px-3 py-1 bg-blue-100 dark:bg-blue-600/20 text-blue-700 dark:text-blue-300 rounded-full text-sm border border-blue-200 dark:border-blue-500/30"
               >
                 <FaTag className="w-3 h-3" />
                 {tag}
@@ -72,13 +72,15 @@ export default function BlogContent({ blog }: BlogContentProps) {
         )}
 
         {/* Excerpt */}
-        <p className="text-lg text-gray-300 leading-relaxed">{blog.excerpt}</p>
+        <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          {blog.excerpt}
+        </p>
       </motion.div>
 
       {/* Blog Content */}
       <motion.div
         {...fadeIn}
-        className="prose prose-lg prose-invert max-w-none"
+        className="prose prose-lg prose-gray dark:prose-invert max-w-none"
       >
         {blog.content ? (
           <ReactMarkdown
@@ -101,51 +103,53 @@ export default function BlogContent({ blog }: BlogContentProps) {
                     {String(children).replace(/\n$/, "")}
                   </SyntaxHighlighter>
                 ) : (
-                  <code className="bg-gray-800 text-green-400 px-2 py-1 rounded text-sm">
+                  <code className="bg-gray-200 dark:bg-gray-800 text-blue-700 dark:text-green-400 px-2 py-1 rounded text-sm">
                     {children}
                   </code>
                 );
               },
               h1: ({ children }) => (
-                <h1 className="text-3xl font-bold text-blue-400 mt-8 mb-6">
+                <h1 className="text-3xl font-bold text-blue-600 dark:text-blue-400 mt-8 mb-6">
                   {children}
                 </h1>
               ),
               h2: ({ children }) => (
-                <h2 className="text-2xl font-bold text-blue-400 mt-8 mb-4">
+                <h2 className="text-2xl font-bold text-blue-600 dark:text-blue-400 mt-8 mb-4">
                   {children}
                 </h2>
               ),
               h3: ({ children }) => (
-                <h3 className="text-xl font-semibold text-blue-300 mt-6 mb-3">
+                <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-300 mt-6 mb-3">
                   {children}
                 </h3>
               ),
               p: ({ children }) => (
-                <p className="text-gray-300 leading-relaxed mb-4">{children}</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                  {children}
+                </p>
               ),
               ul: ({ children }) => (
-                <ul className="text-gray-300 list-disc list-inside space-y-2 mb-4">
+                <ul className="text-gray-700 dark:text-gray-300 list-disc list-inside space-y-2 mb-4">
                   {children}
                 </ul>
               ),
               ol: ({ children }) => (
-                <ol className="text-gray-300 list-decimal list-inside space-y-2 mb-4">
+                <ol className="text-gray-700 dark:text-gray-300 list-decimal list-inside space-y-2 mb-4">
                   {children}
                 </ol>
               ),
               li: ({ children }) => (
-                <li className="text-gray-300">{children}</li>
+                <li className="text-gray-700 dark:text-gray-300">{children}</li>
               ),
               blockquote: ({ children }) => (
-                <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-400 my-4">
+                <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400 my-4">
                   {children}
                 </blockquote>
               ),
               a: ({ href, children }) => (
                 <a
                   href={href}
-                  className="text-blue-400 hover:text-blue-300 underline"
+                  className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -153,14 +157,16 @@ export default function BlogContent({ blog }: BlogContentProps) {
                 </a>
               ),
               strong: ({ children }) => (
-                <strong className="text-white font-semibold">{children}</strong>
+                <strong className="text-gray-900 dark:text-white font-semibold">
+                  {children}
+                </strong>
               ),
             }}
           >
             {blog.content}
           </ReactMarkdown>
         ) : (
-          <p className="text-gray-300">{blog.excerpt}</p>
+          <p className="text-gray-700 dark:text-gray-300">{blog.excerpt}</p>
         )}
       </motion.div>
     </div>
