@@ -150,7 +150,21 @@ dist/
 ## Một số file config hỗ trợ khác
 
 - **.editorconfig**: chuẩn hóa indent size, style (dùng cho nhiều editor)
+\`\`\`json
+[*]
+indent_size = 2
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+\`\`\`
 - **.gitignore**: bỏ qua node_modules/, dist/ khỏi git
+\`\`\`json
+node_modules/
+dist/
+.env
+\`\`\`
 - **nodemon.json**: tự động restart server khi code thay đổi
 
 \`\`\`json
