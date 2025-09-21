@@ -1,6 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website
 
-## Getting Started
+A modern, responsive personal portfolio website built with Next.js, TypeScript, and Tailwind CSS. This portfolio showcases my skills, projects, and blog posts with a clean, professional design and smooth animations.
+
+## 🌐 Live Website
+
+**[View Live Portfolio →](https://clowderdev.vercel.app/)**
+
+## ✨ Features
+
+- **Responsive Design**: Optimized for all devices and screen sizes
+- **Modern Tech Stack**: Built with Next.js 15, React 19, TypeScript, and Tailwind CSS
+- **Interactive Components**: Smooth animations and transitions using Motion
+- **Blog System**: Dynamic blog posts with syntax highlighting
+- **Project Showcase**: Detailed project cards with live demos and source code links
+- **Contact Integration**: Easy ways to get in touch
+- **Dark/Light Mode**: Theme switching capability
+- **SEO Optimized**: Built with Next.js best practices
+
+## 🚀 Getting Started
 
 First, run the development server:
 
@@ -18,19 +35,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Heroicons & React Icons
+- **Animations**: Motion (Framer Motion)
+- **Analytics**: Vercel Analytics
+- **Markdown**: React Markdown with syntax highlighting
+- **Deployment**: Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## 📁 Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/                 # Next.js App Router pages
+│   ├── about/          # About page
+│   ├── blogs/          # Blog listing and individual posts
+│   ├── contact/        # Contact page
+│   └── projects/       # Projects showcase
+├── components/         # Reusable React components
+├── contents/           # Content data (blogs, projects)
+├── context/            # React context providers
+├── types/              # TypeScript type definitions
+└── utils/              # Utility functions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a personal portfolio project, but feedback and suggestions are always welcome! Feel free to open an issue or reach out through the contact form on the website.
