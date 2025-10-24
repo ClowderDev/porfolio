@@ -116,7 +116,7 @@ export default function Hero() {
             >
               <Link
                 href="/TranLeVinhBuu.pdf"
-                download="TranLeVinhBuu.pdf"
+                download="TranLeVinhBuu_CV.pdf"
                 className="bg-primary inline-flex items-center justify-center w-full text-white py-3 rounded-lg hover:bg-primary/90 transition-colors"
               >
                 <IoMdDownload className="mr-2" /> Get my CV

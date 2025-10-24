@@ -119,7 +119,7 @@ export default function About() {
               </li>
               <li>Mentored junior developers and conducted code reviews</li>
             </ul>
-          </motion.div>
+          </motion.div> */}
 
           <motion.div
             className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
@@ -128,16 +128,25 @@ export default function About() {
             transition={{ type: "spring" as const, stiffness: 300 }}
           >
             <h3 className="text-xl font-semibold mb-2">Full Stack Developer</h3>
-            <p className="text-primary mb-2">Previous Company • 2018 - 2020</p>
+            <p className="text-primary mb-2">
+              {" "}
+              VieMind Tech Consulting • Sep 2025 - Oct 2025
+            </p>
             <ul className="text-secondary list-disc list-inside space-y-2">
-              <li>Developed and maintained RESTful APIs</li>
               <li>
-                Built responsive user interfaces with modern JavaScript
-                frameworks
+                Built and maintained web apps using Next.js (frontend) and
+                Payload CMS (Node.js, MongoDB).
               </li>
-              <li>Optimized database queries improving performance by 40%</li>
+              <li>
+                Designed API structures, optimized schemas, and improved caching
+                and performance.
+              </li>
+              <li>
+                Collaborated in code reviews and documentation to enhance
+                scalability and maintainability.
+              </li>
             </ul>
-          </motion.div> */}
+          </motion.div>
         </motion.div>
       </motion.section>
 
