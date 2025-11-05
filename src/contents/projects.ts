@@ -7,7 +7,7 @@ export const projects: Project[] = [
       "A full-stack project management platform built with ReactJs, NodeJs, TypeScript, and Tailwind CSS.",
     technologies: ["ReactJs", "NodeJs", "TypeScript", "Tailwind CSS"],
     githubLink: "https://github.com/ClowderDev/project-management",
-    demoLink: "https://project-management-clowder.vercel.app/",
+    demoLink: "",
     image: "/projects/project-management.png",
   },
   {
